@@ -1,15 +1,17 @@
 import random
-import pytest
 
 class GetElementRandomly:
     def __init__(self, arr):
         self.arr = arr
-        cum = [0] * len(arr)
-        cum[0] = arr[0]
-        for i in range(1, len(arr)):
-            cum[i] = cum[i-1] + arr[i]
-        self.cum = cum
-        self.sum = cum[-1]
+        self.cum = self._get_cum()
+        self.sum = self.cum[-1]
+
+    def _get_cum(self):
+        cum = [0] * len(self.arr)
+        cum[0] = self.arr[0]
+        for i in range(1, len(self.arr)):
+            cum[i] = cum[i-1] + self.arr[i]
+        return cum
 
     def get_random(self, r=None):
         if not r:
@@ -21,7 +23,6 @@ class GetElementRandomly:
 
 
 if __name__=="__main__":
-    random.seed(10)
     array = GetElementRandomly([1,2,3,4])
     a = array.get_random(3.3)
     assert a == 3
