@@ -1,7 +1,7 @@
 import random
 
 
-class GetElementRandomly:
+class RichArray:
     def __init__(self, arr):
         self.arr = arr
         self.cum = self._get_cum()
@@ -24,13 +24,13 @@ class GetElementRandomly:
 
 
 if __name__ == "__main__":
-    array = GetElementRandomly([1, 2, 3, 4])
+    array = RichArray([1, 2, 3, 4])
     a = array.get_random(3.3)
     assert a == 3
-    a = array.get_random(3.3)
-    assert a == 3
-    array2 = GetElementRandomly([1, 100])
-    b = array2.get_random(99)
-    assert b == 100
-    c = array2.get_random(0.5)
-    assert c == 1
+    b = array.get_random(3.3)
+    assert b == 3
+    array2 = RichArray([1, 100])
+    c = array2.get_random(99)
+    assert c == 100
+    d = array2.get_random(0.5)
+    assert d == 1
