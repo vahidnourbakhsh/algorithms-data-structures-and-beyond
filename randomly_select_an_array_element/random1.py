@@ -6,7 +6,7 @@ def get_random(arr, r=None):
     cum = [0] * len(arr)
     cum[0] = arr[0]
     for i in range(1, len(arr)):
-        cum[i] = cum[i-1] + arr[i]
+        cum[i] = cum[i - 1] + arr[i]
 
     if not r:
         r = random.random() * sum(arr)
@@ -16,10 +16,10 @@ def get_random(arr, r=None):
             return arr[ind]
 
 
-if __name__=="__main__":
-    a = get_random([1,2,3,4], 3.3)
+if __name__ == "__main__":
+    a = get_random([1, 2, 3, 4], 3.3)
     assert a == 3
-    a = get_random([1,2,3,4], 3.3)
+    a = get_random([1, 2, 3, 4], 3.3)
     assert a == 3
     b = get_random([1, 100], 99)
     assert b == 100
@@ -31,7 +31,5 @@ if __name__=="__main__":
     for _ in range(1000):
         e = get_random([1, 2, 3, 4])
         d[e] += 1
-    d = {e: v/1000 for e, v in d.items()}
-    print(f"actual: {d} \n"
-          f"expected: {{ 1: 0.1, 2: 0.2, 3: 0.3, 4: 0.4 }}"
-          )
+    d = {e: v / 1000 for e, v in d.items()}
+    print(f"actual: {d} \n" f"expected: {{ 1: 0.1, 2: 0.2, 3: 0.3, 4: 0.4 }}")
