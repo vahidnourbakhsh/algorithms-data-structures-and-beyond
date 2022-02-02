@@ -1,6 +1,7 @@
 import random
-import pytest
 from collections import defaultdict
+
+
 def get_random(arr, r=None):
     cum = [0] * len(arr)
     cum[0] = arr[0]
