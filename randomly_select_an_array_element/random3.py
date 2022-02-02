@@ -28,14 +28,14 @@ class RichArray:
 if __name__ == "__main__":
     random.seed(10)
     array = RichArray([1, 2, 3, 4])
-    d = defaultdict(int)
+    counts = defaultdict(int)
     repetitions = 10000
     for _ in range(repetitions):
         e = array.get_random()
-        d[e] += 1
-    d = {e: v / repetitions for e, v in d.items()}
-    print(f"actual: {d} \n expected: {{ 1: 0.1, 2: 0.2, 3: 0.3, 4: 0.4 }}")
-    assert math.isclose(d[1], 0.1, abs_tol=0.1)
-    assert math.isclose(d[2], 0.2, abs_tol=0.1)
-    assert math.isclose(d[3], 0.3, abs_tol=0.1)
-    assert math.isclose(d[4], 0.4, abs_tol=0.1)
+        counts[e] += 1
+    actual_probabilities = {e: v / repetitions for e, v in counts.items()}
+    print(f"actual: {actual_probabilities} \n expected: {{ 1: 0.1, 2: 0.2, 3: 0.3, 4: 0.4 }}")
+    assert math.isclose(actual_probabilities[1], 0.1, abs_tol=0.1)
+    assert math.isclose(actual_probabilities[2], 0.2, abs_tol=0.1)
+    assert math.isclose(actual_probabilities[3], 0.3, abs_tol=0.1)
+    assert math.isclose(actual_probabilities[4], 0.4, abs_tol=0.1)

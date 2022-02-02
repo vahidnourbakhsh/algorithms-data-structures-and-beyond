@@ -27,9 +27,9 @@ if __name__ == "__main__":
     assert c == 1
 
     random.seed(1)
-    d = defaultdict(int)
+    counts = defaultdict(int)
     for _ in range(1000):
         e = get_random([1, 2, 3, 4])
-        d[e] += 1
-    d = {e: v / 1000 for e, v in d.items()}
-    print(f"actual: {d} \n expected: {{ 1: 0.1, 2: 0.2, 3: 0.3, 4: 0.4 }}")
+        counts[e] += 1
+    actual_probabilites = {e: v / 1000 for e, v in counts.items()}
+    print(f"actual: {actual_probabilites} \n expected: {{ 1: 0.1, 2: 0.2, 3: 0.3, 4: 0.4 }}")

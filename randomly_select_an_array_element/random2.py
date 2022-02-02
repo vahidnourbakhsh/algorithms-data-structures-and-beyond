@@ -1,4 +1,5 @@
 import random
+from collections import defaultdict
 
 
 class RichArray:
@@ -34,3 +35,12 @@ if __name__ == "__main__":
     assert c == 100
     d = array2.get_random(0.5)
     assert d == 1
+
+    random.seed(1)
+    repetitions = 10000
+    counts = defaultdict(int)
+    for _ in range(repetitions):
+        e = array.get_random()
+        counts[e] += 1
+    actual_probabilites = {e: v / repetitions for e, v in counts.items()}
+    print(f"actual: {actual_probabilites} \n expected: {{ 1: 0.1, 2: 0.2, 3: 0.3, 4: 0.4 }}")
