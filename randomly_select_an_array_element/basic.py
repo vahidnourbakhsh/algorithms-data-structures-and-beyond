@@ -2,6 +2,9 @@ import random
 from collections import defaultdict
 
 
+REPETITIONS = 10000
+
+
 def get_random(arr, r=None):
     cum = [0] * len(arr)
     cum[0] = arr[0]
@@ -28,10 +31,10 @@ if __name__ == "__main__":
 
     random.seed(1)
     counts = defaultdict(int)
-    for _ in range(1000):
+    for _ in range(REPETITIONS):
         e = get_random([1, 2, 3, 4])
         counts[e] += 1
-    actual_probabilites = {e: v / 1000 for e, v in counts.items()}
+    actual_probabilites = {e: v / REPETITIONS for e, v in counts.items()}
     print(
         f"actual: {actual_probabilites} \n expected: {{ 1: 0.1, 2: 0.2, 3: 0.3, 4: 0.4 }}"
     )

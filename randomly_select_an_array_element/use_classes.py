@@ -2,6 +2,9 @@ import random
 from collections import defaultdict
 
 
+REPETITIONS = 10000
+
+
 class RichArray:
     def __init__(self, arr):
         self.arr = arr
@@ -37,12 +40,11 @@ if __name__ == "__main__":
     assert d == 1
 
     random.seed(1)
-    repetitions = 10000
     counts = defaultdict(int)
-    for _ in range(repetitions):
+    for _ in range(REPETITIONS):
         e = array.get_random()
         counts[e] += 1
-    actual_probabilites = {e: v / repetitions for e, v in counts.items()}
+    actual_probabilites = {e: v / REPETITIONS for e, v in counts.items()}
     print(
         f"actual: {actual_probabilites} \n expected: {{ 1: 0.1, 2: 0.2, 3: 0.3, 4: 0.4 }}"
     )
