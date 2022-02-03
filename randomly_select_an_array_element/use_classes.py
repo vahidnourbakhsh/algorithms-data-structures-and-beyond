@@ -43,4 +43,6 @@ if __name__ == "__main__":
         e = array.get_random()
         counts[e] += 1
     actual_probabilites = {e: v / repetitions for e, v in counts.items()}
-    print(f"actual: {actual_probabilites} \n expected: {{ 1: 0.1, 2: 0.2, 3: 0.3, 4: 0.4 }}")
+    print(
+        f"actual: {actual_probabilites} \n expected: {{ 1: 0.1, 2: 0.2, 3: 0.3, 4: 0.4 }}"
+    )

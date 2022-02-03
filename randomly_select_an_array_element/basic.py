@@ -32,4 +32,6 @@ if __name__ == "__main__":
         e = get_random([1, 2, 3, 4])
         counts[e] += 1
     actual_probabilites = {e: v / 1000 for e, v in counts.items()}
-    print(f"actual: {actual_probabilites} \n expected: {{ 1: 0.1, 2: 0.2, 3: 0.3, 4: 0.4 }}")
+    print(
+        f"actual: {actual_probabilites} \n expected: {{ 1: 0.1, 2: 0.2, 3: 0.3, 4: 0.4 }}"
+    )
